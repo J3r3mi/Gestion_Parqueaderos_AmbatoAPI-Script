@@ -1,0 +1,356 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\controllers\\parqueaderoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\controllers\\parqueaderoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\loginrespuestadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\loginrespuestadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\registrousuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\registrousuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\reservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\reservadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\controllers\\espaciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\controllers\\espaciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\espaciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\espaciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\dtos\\parqueaderodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\dtos\\parqueaderodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\historialreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\historialreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\parqueadero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\parqueadero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\models\\espacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\models\\espacio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|c:\\users\\hp\\onedrive\\documentos\\gestionparqueaderosambato\\gestionparqueaderosambato\\gestionparqueaderosambato.api\\data\\gestionparqueaderosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D5A7BA-9236-4B78-800D-6CD685787142}|GestionParqueaderosAmbato.API\\GestionParqueaderosAmbato.API.csproj|solutionrelative:gestionparqueaderosambato.api\\data\\gestionparqueaderosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginRespuestaDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\LoginRespuestaDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\LoginRespuestaDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\LoginRespuestaDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\LoginRespuestaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T13:49:31.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAcwJ8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:14:50.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReservaDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\ReservaDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\ReservaDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\ReservaDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\ReservaDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA1wBAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:11:07.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EspacioController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\EspacioController.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Controllers\\EspacioController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\EspacioController.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Controllers\\EspacioController.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAcwH0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:30:12.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\appsettings.json",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\appsettings.json",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-30T23:12:27.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Program.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Program.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Program.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:13:14.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAowMgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:26:16.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ParqueaderosController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\ParqueaderosController.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Controllers\\ParqueaderosController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Controllers\\ParqueaderosController.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Controllers\\ParqueaderosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:19:51.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsuarioDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\UsuarioDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\UsuarioDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\UsuarioDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\UsuarioDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA9wBQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:25:03.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegistroUsuarioDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\RegistroUsuarioDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\RegistroUsuarioDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\RegistroUsuarioDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\RegistroUsuarioDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBAAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:25:45.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T22:34:42.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EspacioDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\EspacioDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\EspacioDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\EspacioDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\EspacioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:29:43.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ParqueaderoDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\ParqueaderoDto.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\DTOs\\ParqueaderoDto.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\DTOs\\ParqueaderoDto.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\DTOs\\ParqueaderoDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:26:56.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GestionParqueaderosDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Data\\GestionParqueaderosDbContext.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Data\\GestionParqueaderosDbContext.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Data\\GestionParqueaderosDbContext.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Data\\GestionParqueaderosDbContext.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAwEgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:11:09.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "HistorialReserva.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\HistorialReserva.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\HistorialReserva.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\HistorialReserva.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\HistorialReserva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:09:50.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Reserva.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\Reserva.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Reserva.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\Reserva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:09:19.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Espacio.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Espacio.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\Espacio.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Espacio.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\Espacio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:08:52.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Parqueadero.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Parqueadero.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\Parqueadero.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Parqueadero.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\Parqueadero.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:08:24.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Usuario.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:07:39.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "GestionParqueaderosAmbato.API\\Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Documentos\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato\\GestionParqueaderosAmbato.API\\Models\\Rol.cs",
+              "RelativeToolTip": "GestionParqueaderosAmbato.API\\Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T23:06:55.206Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
