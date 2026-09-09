@@ -26,3 +26,9 @@
 
 * Se actualizó el README.md.
 * Se actualizó el archivo CAMBIOS con las modificaciones realizadas.
+
+**Observación:**
+El cambio fue registrado y gestionado mediante GitHub como parte del control de configuración del proyecto.
+
+**Actualización:**
+Migración de base de datos: Se reemplazó la implementación inicial de SQL Server por una nueva estructura basada en MySQL, incorporando nuevas tablas, relaciones y funcionalidades para la gestión integral del sistema de parqueaderos.
