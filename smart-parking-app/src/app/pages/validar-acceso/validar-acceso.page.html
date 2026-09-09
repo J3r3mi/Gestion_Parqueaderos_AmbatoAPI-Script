@@ -1,0 +1,213 @@
+<app-navbar></app-navbar>
+
+<ion-content class="validator-content">
+  <div class="validator-wrapper">
+
+    <!-- Header Title -->
+    <div class="page-header">
+      <h1 class="page-title">Validador de Entrada y Escáner QR</h1>
+      <p class="page-subtitle">
+        Simulador de lector de barrera automática en garita (Capacitor Barcode Scanner / Web API).
+      </p>
+    </div>
+
+    <!-- 2-Columns Grid Layout -->
+    <div class="validator-grid">
+
+      <!-- Columna Izquierda: Cámara / Lector Óptico -->
+      <div class="scanner-card">
+        <div class="card-header-line">
+          <ion-icon name="qr-code-outline" class="card-icon"></ion-icon>
+          <span class="card-title">Cámara del Operador / Lector Óptico</span>
+        </div>
+
+        <!-- Modo Entrada / Salida -->
+        <div class="mode-selector-row">
+          <div class="mode-tabs">
+            <button
+              class="mode-btn"
+              [class.active]="modo() === 'entrada'"
+              (click)="cambiarModo('entrada')"
+            >
+              Entrada
+            </button>
+            <button
+              class="mode-btn"
+              [class.active]="modo() === 'salida'"
+              (click)="cambiarModo('salida')"
+            >
+              Salida
+            </button>
+          </div>
+
+          <div class="payment-group" *ngIf="modo() === 'salida'">
+            <span class="pay-label">Pago:</span>
+            <select class="pay-select" [(ngModel)]="metodoPago">
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta</option>
+              <option value="transferencia">Transferencia</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Visor de Cámara con HUD Tecnológico -->
+        <div class="camera-viewport">
+          <zxing-scanner
+            *ngIf="escanerHabilitado() && !sinCamara()"
+            [formats]="formatosPermitidos"
+            (scanSuccess)="onEscaneoExitoso($event)"
+            (camerasFound)="onCamarasEncontradas($event)"
+            (permissionResponse)="onPermisoCamara($event)"
+            class="video-feed"
+          ></zxing-scanner>
+
+          <!-- HUD Overlay Scanning Frame -->
+          <div class="hud-overlay">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <div class="scan-laser" *ngIf="escanerHabilitado()"></div>
+          </div>
+
+          <div class="hud-footer">
+            <span class="hud-status">
+              ● SENSOR QR LISTO • AMBATO GATE-01
+            </span>
+          </div>
+        </div>
+
+        <!-- Entrada Manual de Token QR -->
+        <div class="manual-input-section">
+          <label class="input-label">Token QR o ID de Reserva</label>
+          <div class="input-action-row">
+            <input
+              type="text"
+              class="cyber-input"
+              placeholder="Escanea o pega el token QR..."
+              [ngModel]="tokenManual()"
+              (ngModelChange)="tokenManual.set($event)"
+              (keyup.enter)="validarTokenManual()"
+            />
+            <button class="btn-validate" (click)="validarTokenManual()" [disabled]="procesando()">
+              <ion-icon name="qr-code-outline"></ion-icon>
+              <span>Validar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reservas Activas para Simular Escaneo -->
+        <div class="simulated-reservations-section">
+          <span class="sim-title">RESERVAS ACTIVAS DISPONIBLES PARA SIMULAR ESCANEO:</span>
+          <div class="sim-chips">
+            <button
+              class="sim-chip"
+              *ngFor="let res of reservasSimuladas()"
+              (click)="usarTokenSimulado(res.token)"
+            >
+              <span class="chip-token">{{ res.token }}</span>
+              <span class="chip-info">{{ res.conductor }} ({{ res.plaza }})</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Estado de Validación & Telemetría -->
+      <div class="telemetry-card">
+        <div class="card-header-line">
+          <ion-icon name="shield-checkmark-outline" class="card-icon text-indigo"></ion-icon>
+          <span class="card-title">Estado de Validación & Telemetría</span>
+        </div>
+
+        <div class="telemetry-body">
+          <!-- Estado Inicial / Esperando -->
+          <div class="telemetry-idle" *ngIf="!resultadoEntrada() && !resultadoSalida() && !errorMensaje()">
+            <div class="radar-pulse">
+              <ion-icon name="scan-outline"></ion-icon>
+            </div>
+            <p class="idle-text">
+              Escanea el código QR presentado por el conductor para verificar la reserva y levantar la barrera.
+            </p>
+          </div>
+
+          <!-- Error de Validación -->
+          <div class="telemetry-result error-state" *ngIf="errorMensaje() as err">
+            <div class="result-badge badge-danger">ACCESO DENEGADO</div>
+            <p class="result-msg">{{ err }}</p>
+            <button class="btn-reset" (click)="reiniciarEscaner()">Reintentar</button>
+          </div>
+
+          <!-- Resultado Exitoso de Entrada -->
+          <div class="telemetry-result success-state" *ngIf="resultadoEntrada() as res">
+            <div class="result-badge" [class.badge-success]="res.valido" [class.badge-danger]="!res.valido">
+              {{ res.valido ? 'BARRERA: LEVANTADA / ACCESO CONCEDIDO' : 'ACCESO DENEGADO' }}
+            </div>
+
+            <div class="data-grid" *ngIf="res.valido">
+              <div class="data-item">
+                <span class="data-label">Plaza Asignada</span>
+                <span class="data-val text-emerald">{{ res.plazaCodigo || 'A-01' }}</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Conductor</span>
+                <span class="data-val">{{ res.conductorNombre || 'Conductor Autorizado' }}</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Tipo de Acceso</span>
+                <span class="data-val">{{ res.tipoAccesoRegistrado || 'entrada' }}</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Estado</span>
+                <span class="data-val text-emerald">Autorizado</span>
+              </div>
+            </div>
+
+            <p class="result-msg">{{ res.mensaje }}</p>
+
+            <button class="btn-reset" (click)="reiniciarEscaner()">
+              Escanear siguiente vehículo
+            </button>
+          </div>
+
+          <!-- Resultado Exitoso de Salida -->
+          <div class="telemetry-result success-state" *ngIf="resultadoSalida() as res">
+            <div class="result-badge badge-success">
+              SALIDA REGISTRADA / BARRERA ABIERTA
+            </div>
+
+            <div class="data-grid">
+              <div class="data-item">
+                <span class="data-label">Monto Cobrado</span>
+                <span class="data-val text-emerald">${{ res.montoCobrado | number: '1.2-2' }}</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Tiempo Estacionado</span>
+                <span class="data-val">{{ res.duracionMinutos }} minutos</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Método de Pago</span>
+                <span class="data-val">{{ res.metodoPago }}</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Estado</span>
+                <span class="data-val text-emerald">Completado</span>
+              </div>
+            </div>
+
+            <button class="btn-reset" (click)="reiniciarEscaner()">
+              Escanear siguiente vehículo
+            </button>
+          </div>
+        </div>
+
+        <!-- Telemetry Footer -->
+        <div class="telemetry-footer">
+          <span class="protocol-text">Protocolo: ASP.NET Core Web API</span>
+          <span class="live-tag">SignalR WebSocket Live</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

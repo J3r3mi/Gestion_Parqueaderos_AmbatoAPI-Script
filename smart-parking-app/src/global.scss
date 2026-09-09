@@ -1,0 +1,87 @@
+/* Core CSS requerido para que Ionic funcione correctamente */
+@import "@ionic/angular/css/core.css";
+
+/* Estilos básicos de Ionic para tipografía, formularios, etc. */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Utilidades opcionales de Ionic */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Estilos globales Dark Executive */
+body {
+  background-color: var(--bg-dark-main);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+}
+
+/* Scrollbars estilizados */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Estilos para badges flotantes de Leaflet (P 11 libres, etc.) */
+.leaflet-custom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 11px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  }
+
+  &.badge-disponible {
+    background: #10B981;
+    color: #ffffff;
+  }
+  &.badge-casi-lleno {
+    background: #F59E0B;
+    color: #0F172A;
+  }
+  &.badge-lleno {
+    background: #EF4444;
+    color: #ffffff;
+  }
+}
+
+.leaflet-driver-pin {
+  background: #2563EB;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.8);
+}

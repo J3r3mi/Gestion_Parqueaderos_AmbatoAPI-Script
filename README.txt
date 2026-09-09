@@ -1,111 +1,76 @@
-API REST para la gestión de parqueaderos privados en la ciudad de Ambato.
+# Gestión de Parqueaderos Ambato
 
-El backend fue desarrollado con **ASP.NET Core, C# y Entity Framework Core**, conectado a **SQL Server**. La API permite gestionar usuarios, autenticación, parqueaderos, espacios de estacionamiento y reservas, proporcionando los servicios necesarios para su posterior integración con una aplicación móvil desarrollada con **Ionic + Angular**.
+Aplicación móvil para la localización, reserva y orientación hacia parqueaderos privados en zonas comerciales de la ciudad de Ambato mediante geolocalización y optimización de rutas.
 
-## Estructura de la API
+## Componentes del proyecto
 
-La API está organizada de la siguiente manera:
+El sistema está compuesto por:
 
-```text
-GestionParqueaderosAmbato.API/
-│
-├── Controllers/
-│   ├── UsuariosController.cs
-│   ├── ParqueaderosController.cs
-│   ├── EspaciosController.cs
-│   └── ReservasController.cs
-│
-├── Data/
-│   └── GestionParqueaderosDbContext.cs
-│
-├── DTOs/
-│   ├── LoginDto.cs
-│   ├── LoginRespuestaDto.cs
-│   ├── RegistroUsuarioDto.cs
-│   └── UsuarioDto.cs
-│
-├── Models/
-│   ├── Usuario.cs
-│   ├── Rol.cs
-│   ├── Parqueadero.cs
-│   ├── Espacio.cs
-│   └── Reserva.cs
-│
-├── appsettings.json
-├── Program.cs
-└── GestionParqueaderosAmbato.API.csproj
-```
-
-## Controllers
-
-Contienen los endpoints que permiten realizar las operaciones sobre cada recurso de la aplicación.
-
-### UsuariosController
-
-Gestiona las operaciones relacionadas con los usuarios del sistema, incluyendo el registro y la autenticación.
-
-### ParqueaderosController
-
-Gestiona la información de los parqueaderos privados registrados en el sistema.
-
-### EspaciosController
-
-Gestiona los espacios de estacionamiento asociados a cada parqueadero.
-
-### ReservasController
-
-Gestiona las reservas de los espacios de estacionamiento.
-
-## Data
-
-Contiene el `GestionParqueaderosDbContext`, encargado de establecer la comunicación entre la API y la base de datos SQL Server mediante Entity Framework Core.
-
-## DTOs
-
-Contienen los objetos utilizados para recibir y devolver información de forma controlada, evitando exponer directamente determinados datos de las entidades.
-
-Entre ellos se encuentran los DTO utilizados para el inicio de sesión, registro y respuesta de autenticación.
-
-## Models
-
-Representan las principales entidades utilizadas por el sistema y relacionadas con la base de datos.
-
-Las entidades principales son:
-
-* Usuario
-* Rol
-* Parqueadero
-* Espacio
-* Reserva
-
-## Endpoints principales
-
-La API REST dispone de los siguientes recursos principales:
-
-| Controlador              | Recurso             | Función                                |
-| ------------------------ | ------------------- | -------------------------------------- |
-| `UsuariosController`     | `/api/Usuarios`     | Gestión de usuarios y autenticación    |
-| `ParqueaderosController` | `/api/Parqueaderos` | Gestión de parqueaderos privados       |
-| `EspaciosController`     | `/api/Espacios`     | Gestión de espacios de estacionamiento |
-| `ReservasController`     | `/api/Reservas`     | Gestión de reservas                    |
-
-Estos recursos constituyen la base del backend para su posterior integración con la aplicación móvil.
-
-## Base de datos
-
-La API utiliza **SQL Server** con la siguiente base de datos:
-
-```text
-GestionParqueaderosAmbato
-```
-
-La base de datos contiene las estructuras necesarias para almacenar y gestionar la información de usuarios, roles, parqueaderos, espacios y reservas.
+* **Aplicación móvil:** interfaz utilizada por los usuarios para consultar parqueaderos, visualizar su ubicación, realizar reservas y orientarse mediante rutas.
+* **API REST:** servicio encargado de gestionar la comunicación entre la aplicación móvil y la base de datos.
+* **Base de datos MySQL:** almacena la información de usuarios, parqueaderos, espacios, reservas y demás datos necesarios para el funcionamiento del sistema.
 
 ## Tecnologías utilizadas
 
-* **Lenguaje:** C#
-* **Framework:** ASP.NET Core
-* **ORM:** Entity Framework Core
-* **Base de datos:** Microsoft SQL Server
-* **Frontend previsto:** Ionic + Angular
-* **Arquitectura:** API REST
+### Aplicación móvil
+
+* Ionic
+* Angular
+* TypeScript
+
+### API
+
+* C#
+* ASP.NET Core Web API
+* Entity Framework Core
+* MySQL
+
+### Base de datos
+
+* MySQL
+
+## Funcionalidades principales
+
+* Registro y gestión de usuarios.
+* Consulta de parqueaderos privados.
+* Visualización de parqueaderos mediante geolocalización.
+* Consulta de espacios disponibles.
+* Reserva de espacios de estacionamiento.
+* Gestión de parqueaderos.
+* Gestión de espacios.
+* Consulta y administración de reservas.
+* Orientación hacia los parqueaderos mediante rutas.
+
+## Estructura del proyecto
+
+```text
+Gestion-Parqueaderos-Ambato
+│
+├── API
+│   └── GestionParqueaderosAmbato.API
+│
+├── Aplicacion-Movil
+│   └── Proyecto de aplicación móvil
+│
+├── BaseDeDatos
+│   └── Script MySQL
+│
+├── CAMBIOS
+└── README.md
+```
+
+## Base de datos
+
+El proyecto utiliza **MySQL** como sistema gestor de base de datos. La base de datos contiene las estructuras necesarias para administrar usuarios, roles, parqueaderos, espacios y reservas.
+
+## Funcionamiento
+
+La aplicación móvil consume los servicios proporcionados por la API REST. La API procesa las solicitudes realizadas desde la aplicación y realiza las operaciones correspondientes sobre la base de datos MySQL.
+
+```text
+Aplicación móvil
+       ↓
+    API REST
+       ↓
+    MySQL
+```

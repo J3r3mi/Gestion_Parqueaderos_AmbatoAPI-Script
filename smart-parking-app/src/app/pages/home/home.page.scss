@@ -1,0 +1,878 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: #0B0F19;
+}
+
+.home-layout {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 64px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sidebar de Enrutamiento */
+.routing-sidebar {
+  width: 380px;
+  min-width: 340px;
+  background: #0F172A;
+  border-right: 1px solid #1E293B;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .title-icon {
+    color: #10B981;
+    font-size: 18px;
+  }
+
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #F8FAFC;
+    letter-spacing: 0.8px;
+  }
+}
+
+.header-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gps-telemetry-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &.simulado {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #60A5FA;
+
+    .pulse-dot {
+      background: #60A5FA;
+      box-shadow: 0 0 6px #60A5FA;
+    }
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+  }
+}
+
+.refresh-icon-btn {
+  background: #1E293B;
+  border: 1px solid #334155;
+  color: #94A3B8;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #FFFFFF;
+    background: #334155;
+  }
+}
+
+/* Card: Evitar Vías Saturadas */
+.routing-card {
+  background: #131D31;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card: Evitar Vías Saturadas */
+.routing-card {
+  background: #131D31;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-main-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+
+  .shield-icon {
+    color: #10B981;
+    font-size: 16px;
+  }
+}
+
+.card-sub-text {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.desvio-alert {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #10B981;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  .zap-icon {
+    font-size: 13px;
+  }
+}
+
+/* Switch personalizable estilo iOS */
+.custom-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #334155;
+    transition: 0.3s;
+    border-radius: 24px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: #10B981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+}
+
+/* Fila Capa de calles congestionadas */
+.layer-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 2px;
+
+  .layer-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #94A3B8;
+  }
+
+  .visible-pill {
+    background: rgba(244, 63, 94, 0.15);
+    border: 1px solid rgba(244, 63, 94, 0.4);
+    color: #F43F5E;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+}
+
+/* Destino Seleccionado */
+.selected-destination-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-tag-pill {
+  align-self: flex-start;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10B981;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.8px;
+}
+
+.destination-card {
+  background: #131D31;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dest-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.dest-address {
+  font-size: 11px;
+  color: #94A3B8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  ion-icon {
+    color: #64748B;
+  }
+}
+
+.metrics-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.metric-box {
+  background: #0B0F19;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.box-label {
+  font-size: 10px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.box-val {
+  font-size: 16px;
+  font-weight: 900;
+
+  &.text-emerald { color: #10B981; }
+  &.text-blue { color: #60A5FA; }
+}
+
+.action-reserve-btn {
+  background: #10B981;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+
+  &:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.55);
+  }
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+/* Itinerario Turn-by-Turn */
+.turn-by-turn-card {
+  background: #0B0F19;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.tbt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.tbt-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #F8FAFC;
+
+  ion-icon {
+    color: #10B981;
+    font-size: 15px;
+  }
+}
+
+.tbt-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94A3B8;
+  font-size: 11px;
+
+  .tbt-points-count {
+    font-size: 10px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+}
+
+.tbt-list {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px 12px 12px;
+  border-top: 1px solid #1E293B;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.tbt-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tbt-bullet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 18px;
+
+  .dot-num {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1E293B;
+    border: 1px solid #334155;
+    color: #38BDF8;
+    font-size: 9px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-line {
+    width: 2px;
+    height: 14px;
+    background: #1E293B;
+    margin: 2px 0;
+  }
+}
+
+.tbt-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  .street-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F1F5F9;
+  }
+
+  .street-dist {
+    font-size: 10px;
+    color: #64748B;
+  }
+}
+
+/* Lista de Parqueaderos */
+.parking-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.list-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748B;
+  letter-spacing: 0.5px;
+}
+
+.parking-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 340px;
+}
+
+.parking-item-card {
+  background: #131D31;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #1E293B;
+    border-color: #334155;
+  }
+
+  &.active-parking {
+    border: 1px solid #10B981;
+    background: rgba(16, 185, 129, 0.08);
+  }
+}
+
+.item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.item-meta {
+  font-size: 10px;
+  color: #64748B;
+}
+
+.item-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+
+  &.badge-green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+  }
+  &.badge-amber {
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+  }
+  &.badge-red {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+  }
+}
+
+/* Botón en el header del sidebar */
+.expand-map-header-btn {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10B981;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  ion-icon {
+    font-size: 14px;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+/* Área del Mapa y Leyenda */
+.map-area {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.map-viewport {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Botón Flotante para Maximizar / Minimizar Mapa */
+.floating-map-toggle-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #10B981;
+  color: #F8FAFC;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+
+  ion-icon {
+    font-size: 16px;
+    color: #10B981;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+/* Leyenda Flotante */
+.map-legend-card {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #1E293B;
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 12px 16px;
+  z-index: 1000;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+
+  &.dragging {
+    cursor: grabbing;
+    opacity: 0.92;
+    box-shadow: 0 12px 36px rgba(16, 185, 129, 0.35);
+    border-color: #10B981;
+  }
+
+  &.collapsed {
+    gap: 0;
+  }
+
+  .legend-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .legend-drag-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .drag-grip-icon {
+    color: #64748B;
+    font-size: 14px;
+  }
+
+  .legend-chevron {
+    color: #94A3B8;
+    font-size: 16px;
+  }
+}
+
+.legend-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+.legend-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.dot-driver { background: #3B82F6; box-shadow: 0 0 6px #3B82F6; }
+  &.dot-green { background: #10B981; }
+  &.dot-amber { background: #F59E0B; }
+  &.dot-red { background: #EF4444; }
+}
+
+.legend-line {
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+
+  &.line-red-dashed {
+    background: repeating-linear-gradient(90deg, #EF4444, #EF4444 4px, transparent 4px, transparent 8px);
+  }
+  &.line-green-solid {
+    background: #10B981;
+  }
+}
+
+/* Estilos de Pines de Leaflet para Conductor y Parqueaderos */
+:host ::ng-deep {
+  .custom-parking-marker-wrapper {
+    background: transparent;
+    border: none;
+  }
+
+  .leaflet-parking-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #0F172A;
+    border: 2px solid #10B981;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    }
+
+    .parking-icon-symbol {
+      font-size: 13px;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .parking-cupos-tag {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 1px 4px;
+      border-radius: 6px;
+      color: #FFFFFF;
+      background: #10B981;
+      border: 1px solid #0F172A;
+    }
+
+    &.badge-amber {
+      border-color: #F59E0B;
+      .parking-cupos-tag {
+        background: #F59E0B;
+      }
+    }
+
+    &.badge-red {
+      border-color: #EF4444;
+      .parking-cupos-tag {
+        background: #EF4444;
+      }
+    }
+  }
+
+  .leaflet-driver-pin {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+
+    &.real-gps-pin {
+      background: rgba(30, 58, 138, 0.95);
+      border: 1.5px solid #3B82F6;
+      color: #FFFFFF;
+
+      .pulse-marker-dot {
+        background: #60A5FA;
+        box-shadow: 0 0 8px #60A5FA;
+      }
+    }
+
+    &.demo-pin {
+      background: rgba(88, 28, 135, 0.95);
+      border: 1.5px solid #A855F7;
+      color: #FFFFFF;
+
+      .pulse-marker-dot {
+        background: #C084FC;
+        box-shadow: 0 0 8px #C084FC;
+      }
+    }
+
+    .pulse-marker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      animation: pulse-dot 1.4s infinite;
+    }
+  }
+
+  .leaflet-custom-tooltip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
+    color: #F8FAFC !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    padding: 6px 10px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .home-layout {
+    flex-direction: column;
+
+    &.mapa-expandido {
+      .routing-sidebar {
+        display: none !important;
+      }
+      .map-area {
+        height: 100% !important;
+        flex: 1 !important;
+      }
+    }
+  }
+
+  .routing-sidebar {
+    width: 100%;
+    max-height: 46vh;
+  }
+
+  .floating-map-toggle-btn {
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .map-legend-card {
+    bottom: 12px;
+    right: 12px;
+    max-width: calc(100vw - 24px);
+    padding: 10px 14px;
+  }
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
+    "RelativePath": "",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AccesosController",
+    "Method": "RegistrarSalida",
+    "RelativePath": "api/Accesos/registrar-salida",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Reservas.ValidarAccesoRequestDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "metodoPago",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AccesosController",
+    "Method": "ValidarEntrada",
+    "RelativePath": "api/Accesos/validar-entrada",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Reservas.ValidarAccesoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Auth.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AuthController",
+    "Method": "RegistrarStaff",
+    "RelativePath": "api/Auth/registrar-staff",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Auth.RegistrarStaffRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AuthController",
+    "Method": "Registro",
+    "RelativePath": "api/Auth/registro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Auth.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AuthController",
+    "Method": "RestablecerPassword",
+    "RelativePath": "api/Auth/restablecer-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Auth.RestablecerPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.AuthController",
+    "Method": "SolicitarRecuperacion",
+    "RelativePath": "api/Auth/solicitar-recuperacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Auth.SolicitarRecuperacionRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.DashboardController",
+    "Method": "Alertas",
+    "RelativePath": "api/Dashboard/alertas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.DashboardController",
+    "Method": "Kpis",
+    "RelativePath": "api/Dashboard/kpis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.DashboardController",
+    "Method": "KpisPorParqueadero",
+    "RelativePath": "api/Dashboard/kpis-por-parqueadero",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.DashboardController",
+    "Method": "OcupacionHoraria",
+    "RelativePath": "api/Dashboard/ocupacion-horaria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.DashboardController",
+    "Method": "Recaudacion",
+    "RelativePath": "api/Dashboard/recaudacion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "Listar",
+    "RelativePath": "api/Parqueaderos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "Crear",
+    "RelativePath": "api/Parqueaderos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Parqueaderos.CrearParqueaderoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Parqueaderos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Parqueaderos.ActualizarParqueaderoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "ListarPlazas",
+    "RelativePath": "api/Parqueaderos/{id}/plazas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "AgregarPlaza",
+    "RelativePath": "api/Parqueaderos/{id}/plazas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Parqueaderos.CrearPlazaRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "ActualizarEstadoPlaza",
+    "RelativePath": "api/Parqueaderos/{id}/plazas/{plazaId}/estado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "plazaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Parqueaderos.ActualizarEstadoPlazaRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "ListarTarifas",
+    "RelativePath": "api/Parqueaderos/{id}/tarifas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ParqueaderosController",
+    "Method": "AgregarTarifa",
+    "RelativePath": "api/Parqueaderos/{id}/tarifas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Parqueaderos.CrearTarifaRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ReservasController",
+    "Method": "Crear",
+    "RelativePath": "api/Reservas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Reservas.CrearReservaRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ReservasController",
+    "Method": "Cancelar",
+    "RelativePath": "api/Reservas/{id}/cancelar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.ReservasController",
+    "Method": "MisReservas",
+    "RelativePath": "api/Reservas/mias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.RutasController",
+    "Method": "CalcularRuta",
+    "RelativePath": "api/Rutas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "origenLat",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "origenLng",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "parqueaderoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "algoritmo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.RutasController",
+    "Method": "CompararAlgoritmos",
+    "RelativePath": "api/Rutas/comparar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "origenLat",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "origenLng",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "parqueaderoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.UsuariosController",
+    "Method": "Listar",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParking.Api.Controllers.UsuariosController",
+    "Method": "ActualizarEstado",
+    "RelativePath": "api/Usuarios/{id}/estado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SmartParking.Api.Dtos.Usuarios.ActualizarEstadoUsuarioRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

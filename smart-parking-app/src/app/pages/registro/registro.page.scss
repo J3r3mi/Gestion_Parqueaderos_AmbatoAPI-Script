@@ -1,0 +1,25 @@
+.registro-container {
+  max-width: 420px;
+  margin: 6vh auto 0;
+}
+
+.registro-header {
+  text-align: center;
+  margin-bottom: 24px;
+
+  h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+  p { color: var(--ion-color-medium); font-size: 14px; }
+}
+
+.centrado {
+  text-align: center;
+  margin-top: 15vh;
+
+  .icono-exito { font-size: 64px; }
+  h2 { margin: 8px 0 4px; }
+}
+
+.error-text {
+  font-size: 13px;
+  margin: 8px 4px 0;
+}

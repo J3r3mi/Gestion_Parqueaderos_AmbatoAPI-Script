@@ -1,0 +1,81 @@
+<header class="executive-navbar">
+  <!-- Brand & System Info -->
+  <div class="brand-section">
+    <div class="logo-badge">
+      <ion-icon name="car-sport"></ion-icon>
+    </div>
+    <div class="brand-info">
+      <div class="brand-title-row">
+        <span class="brand-title">Parking Ambato</span>
+        <span class="online-pill">
+          <span class="dot"></span> EN LÍNEA
+        </span>
+      </div>
+      <span class="brand-sub">ASP.NET Core • MySQL • Leaflet • Ionic</span>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs">
+    <!-- Si es Conductor -->
+    <ng-container *ngIf="isConductor">
+      <a routerLink="/home" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="map-outline"></ion-icon>
+        <span>Mapa y Rutas</span>
+      </a>
+      <a routerLink="/mis-reservas" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="qr-code-outline"></ion-icon>
+        <span>Mis Reservas / Pase QR</span>
+      </a>
+    </ng-container>
+
+    <!-- Si es Operador -->
+    <ng-container *ngIf="isOperador">
+      <a routerLink="/validar-acceso" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="qr-code-outline"></ion-icon>
+        <span>Validador en Puerta (QR)</span>
+      </a>
+      <a routerLink="/home" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="map-outline"></ion-icon>
+        <span>Monitoreo en Mapa</span>
+      </a>
+    </ng-container>
+
+    <!-- Si es Administrador -->
+    <ng-container *ngIf="isAdmin">
+      <a routerLink="/dashboard" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="grid-outline"></ion-icon>
+        <span>Dashboard Operativo</span>
+      </a>
+      <a routerLink="/validar-acceso" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="qr-code-outline"></ion-icon>
+        <span>Validador en Puerta (QR)</span>
+      </a>
+      <a routerLink="/home" routerLinkActive="tab-active" class="nav-tab">
+        <ion-icon name="map-outline"></ion-icon>
+        <span>Monitoreo en Mapa</span>
+      </a>
+    </ng-container>
+  </nav>
+
+  <!-- User & Role Section -->
+  <div class="user-section">
+    <button class="icon-action-btn" title="Servidor y Base de Datos">
+      <ion-icon name="server-outline"></ion-icon>
+    </button>
+
+    <div class="role-pill" [ngClass]="{'role-conductor': isConductor, 'role-operador': isOperador, 'role-admin': isAdmin}">
+      <ion-icon name="swap-horizontal-outline"></ion-icon>
+      <span>Rol: <strong class="role-name">{{ rolTexto }}</strong></span>
+    </div>
+
+    <div class="user-info">
+      <span class="user-name">{{ nombreUsuario }}</span>
+      <span class="user-id">C.I: {{ cedulaUsuario }}</span>
+    </div>
+
+    <button class="logout-btn" (click)="salir()" title="Cerrar Sesión">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </button>
+  </div>
+</header>

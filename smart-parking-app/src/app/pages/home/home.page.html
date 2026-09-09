@@ -1,0 +1,200 @@
+<app-navbar></app-navbar>
+
+<div class="home-layout" [class.mapa-expandido]="mapaMaximizado()">
+  <!-- Sidebar de Enrutamiento Inteligente -->
+  <aside class="routing-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title-group">
+        <ion-icon name="navigate-outline" class="title-icon"></ion-icon>
+        <span class="sidebar-title">ENRUTAMIENTO INTELIGENTE</span>
+      </div>
+      <div class="header-right-actions">
+        <button class="expand-map-header-btn" (click)="toggleMaximizarMapa()" [title]="mapaMaximizado() ? 'Ver Panel' : 'Maximizar Mapa'">
+          <ion-icon [name]="mapaMaximizado() ? 'contract-outline' : 'expand-outline'"></ion-icon>
+          <span class="btn-text">{{ mapaMaximizado() ? 'Panel' : 'Mapa' }}</span>
+        </button>
+        <span class="gps-telemetry-badge" [class.simulado]="gpsSimulado()" [title]="gpsSimulado() ? 'Coordenadas simuladas en Ambato (Quis Quis) para demostración' : 'GPS en tiempo real'">
+          <span class="pulse-dot"></span>
+          {{ gpsSimulado() ? 'Ambato Demo' : 'GPS Vivo' }}
+        </span>
+        <button class="refresh-icon-btn" (click)="ngAfterViewInit()" title="Recalcular">
+          <ion-icon name="refresh-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Switch de Evitar Vías Saturadas (A*) -->
+    <div class="routing-card">
+      <div class="toggle-row">
+        <div class="toggle-text">
+          <div class="card-main-title">
+            <ion-icon name="shield-checkmark-outline" class="shield-icon"></ion-icon>
+            <span>Evitar Vías Saturadas (A*)</span>
+          </div>
+          <span class="card-sub-text">Cevallos, Bolívar, Sucre, 12 de Noviembre</span>
+        </div>
+        <label class="custom-switch">
+          <input type="checkbox" [checked]="evitarViasSaturadas()" (change)="toggleEvitarVias()" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="desvio-alert" *ngIf="evitarViasSaturadas()">
+        <span class="zap-icon">⚡</span>
+        <span>Desvío activo por Av. Unidad Nacional y periferia</span>
+      </div>
+    </div>
+
+    <!-- Capa de calles congestionadas -->
+    <div class="layer-info-row">
+      <div class="layer-left">
+        <ion-icon name="layers-outline"></ion-icon>
+        <span>Vías Saturadas en Ambato (5 arterias)</span>
+      </div>
+      <span class="visible-pill">En Vivo</span>
+    </div>
+
+    <!-- Destino Seleccionado -->
+    <div class="selected-destination-section" *ngIf="parqueaderoSeleccionado() as p">
+      <div class="section-tag-pill">DESTINO SELECCIONADO</div>
+      <div class="destination-card">
+        <h2 class="dest-title">{{ p.nombre }}</h2>
+        <p class="dest-address">
+          <ion-icon name="location-outline"></ion-icon>
+          {{ p.direccion }}
+        </p>
+
+        <div class="metrics-boxes-three">
+          <div class="metric-box">
+            <span class="box-label">Tiempo</span>
+            <span class="box-val text-emerald">⏱ {{ tiempoEstimadoDisplay }}</span>
+          </div>
+          <div class="metric-box">
+            <span class="box-label">Hora Llegada (24h)</span>
+            <span class="box-val text-amber">🏁 {{ horaEstimadaLlegadaDisplay }}</span>
+          </div>
+          <div class="metric-box">
+            <span class="box-label">Distancia</span>
+            <span class="box-val text-blue">✈ {{ distanciaDisplay }}</span>
+          </div>
+        </div>
+
+        <button class="action-reserve-btn" (click)="irAReservar()">
+          <span>Reservar Plaza en este Parqueadero</span>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+
+        <!-- Itinerario de Navegación Calle por Calle -->
+        <div class="turn-by-turn-card" *ngIf="rutaActual() as r">
+          <div class="tbt-header" (click)="mostrarIndicaciones.set(!mostrarIndicaciones())">
+            <div class="tbt-title">
+              <ion-icon name="navigate-circle-outline"></ion-icon>
+              <span>Navegación Calle por Calle</span>
+            </div>
+            <div class="tbt-toggle">
+              <span class="tbt-points-count">{{ r.puntos.length }} pts OSM</span>
+              <ion-icon [name]="mostrarIndicaciones() ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+            </div>
+          </div>
+
+          <div class="tbt-list" *ngIf="mostrarIndicaciones()">
+            <div class="tbt-item" *ngFor="let step of r.tramos; let idx = index">
+              <div class="tbt-bullet">
+                <span class="dot-num">{{ idx + 1 }}</span>
+                <span class="step-line" *ngIf="idx < r.tramos.length - 1"></span>
+              </div>
+              <div class="tbt-info">
+                <span class="street-name">{{ step.nombreCalle }}</span>
+                <span class="street-dist">{{ step.distanciaMetros }} m</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de Parqueaderos en Ambato -->
+    <div class="parking-list-section">
+      <span class="list-title">PARQUEADEROS EN AMBATO ({{ parqueaderosList().length }})</span>
+
+      <div class="parking-cards-list">
+        <div
+          class="parking-item-card"
+          *ngFor="let item of parqueaderosList()"
+          [class.active-parking]="parqueaderoSeleccionado()?.id === item.id"
+          (click)="seleccionarParqueadero(item)"
+        >
+          <div class="item-left">
+            <span class="item-name">{{ item.nombre }}</span>
+            <span class="item-meta">{{ item.direccion }}</span>
+          </div>
+          <div
+            class="item-badge"
+            [class.badge-green]="item.cuposLibres > 5"
+            [class.badge-amber]="item.cuposLibres > 0 && item.cuposLibres <= 5"
+            [class.badge-red]="item.cuposLibres === 0"
+          >
+            {{ item.cuposLibres }} libres
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mapa Leaflet y Leyenda Flotante -->
+  <main class="map-area">
+    <div #mapContainer class="map-viewport"></div>
+
+    <!-- Botón Flotante para Maximizar / Minimizar Mapa -->
+    <button class="floating-map-toggle-btn" (click)="toggleMaximizarMapa()">
+      <ion-icon [name]="mapaMaximizado() ? 'contract-outline' : 'expand-outline'"></ion-icon>
+      <span>{{ mapaMaximizado() ? 'Ver Panel' : 'Maximizar Mapa' }}</span>
+    </button>
+
+    <!-- Leyenda Flotante Arrastrable y Colapsable -->
+    <div
+      class="map-legend-card"
+      [class.collapsed]="leyendaColapsada()"
+      [class.dragging]="arrastrandoLeyenda"
+      [style.left.px]="posicionLeyenda()?.x"
+      [style.top.px]="posicionLeyenda()?.y"
+      [style.bottom]="posicionLeyenda() ? 'auto' : '24px'"
+      [style.right]="posicionLeyenda() ? 'auto' : '24px'"
+      (mousedown)="iniciarArrastre($event)"
+      (touchstart)="iniciarArrastre($event)"
+    >
+      <div class="legend-header-bar" (click)="toggleLeyenda()">
+        <div class="legend-drag-title">
+          <ion-icon name="grid-outline" class="drag-grip-icon" title="Arrastrar"></ion-icon>
+          <h4 class="legend-title">LÍNEA DE VÍAS Y ESTADO</h4>
+        </div>
+        <ion-icon [name]="leyendaColapsada() ? 'chevron-up-outline' : 'chevron-down-outline'" class="legend-chevron"></ion-icon>
+      </div>
+      <div class="legend-rows" *ngIf="!leyendaColapsada()">
+        <div class="legend-entry">
+          <span class="legend-dot dot-driver"></span>
+          <span>🚗 Conductor</span>
+        </div>
+        <div class="legend-entry">
+          <span class="legend-dot dot-green"></span>
+          <span>Disponible (> 5 plazas)</span>
+        </div>
+        <div class="legend-entry">
+          <span class="legend-dot dot-amber"></span>
+          <span>Casi Lleno (1 - 5 plazas)</span>
+        </div>
+        <div class="legend-entry">
+          <span class="legend-dot dot-red"></span>
+          <span>Lleno (0 plazas)</span>
+        </div>
+        <div class="legend-entry">
+          <span class="legend-line line-red-dashed"></span>
+          <span>Vías Saturadas (Cevallos, Bolívar, Sucre, 12 Nov)</span>
+        </div>
+        <div class="legend-entry">
+          <span class="legend-line line-green-solid"></span>
+          <span>Ruta Recomendada</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

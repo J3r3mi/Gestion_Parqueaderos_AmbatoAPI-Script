@@ -1,0 +1,203 @@
+<app-navbar></app-navbar>
+
+<ion-content class="dashboard-content">
+  <div class="dashboard-wrapper">
+
+    <!-- Top Banner & Radial Gauge Header -->
+    <div class="dashboard-header-row">
+      <div class="header-text-group">
+        <div class="badge-line">
+          <span class="central-badge">PANEL DE CONTROL CENTRAL</span>
+          <span class="signalr-badge">
+            <span class="dot"></span> SignalR Conectado
+          </span>
+        </div>
+        <h1 class="dashboard-title">Dashboard Operativo Smart Parking</h1>
+        <p class="dashboard-subtitle">
+          Métricas de ocupación, tarifas y flujo vehicular en tiempo real para el cantón Ambato.
+        </p>
+      </div>
+
+      <!-- Circular Radial Gauge -->
+      <div class="radial-gauge-card">
+        <div class="gauge-svg-container">
+          <svg class="gauge-svg" viewBox="0 0 100 100">
+            <circle class="gauge-bg" cx="50" cy="50" r="38"></circle>
+            <circle
+              class="gauge-progress"
+              cx="50"
+              cy="50"
+              r="38"
+              [style.strokeDashoffset]="gaugeOffset()"
+            ></circle>
+          </svg>
+          <div class="gauge-content">
+            <span class="gauge-label">OCUPACIÓN GLOBAL</span>
+            <span class="gauge-percent">{{ porcentajeOcupacion() }}%</span>
+            <span class="gauge-sub">({{ plazasOcupadas() }}/{{ plazasTotales() }})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Main KPI Cards -->
+    <div class="kpi-grid">
+      <!-- Plazas Totales -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-label">Plazas Totales</span>
+          <div class="metric-icon-box icon-blue">
+            <ion-icon name="business-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="metric-val">{{ plazasTotales() }}</div>
+        <span class="metric-sub">{{ totalParqueaderos() }} parqueadero(s) en red</span>
+      </div>
+
+      <!-- Plazas Ocupadas -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-label">Plazas Ocupadas</span>
+          <div class="metric-icon-box icon-indigo">
+            <ion-icon name="car-sport"></ion-icon>
+          </div>
+        </div>
+        <div class="metric-val text-white">{{ plazasOcupadas() }}</div>
+        <span class="metric-sub">{{ porcentajeOcupacion() }}% de uso físico</span>
+      </div>
+
+      <!-- Cupos Libres -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-label">Cupos Libres</span>
+          <div class="metric-icon-box icon-emerald">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </div>
+        </div>
+        <div class="metric-val text-emerald">{{ cuposLibres() }}</div>
+        <span class="metric-sub text-emerald-dim">Disponibilidad inmediata</span>
+      </div>
+
+      <!-- Reservas Activas -->
+      <div class="metric-card">
+        <div class="metric-top">
+          <span class="metric-label">Reservas Activas</span>
+          <div class="metric-icon-box icon-amber">
+            <ion-icon name="time-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="metric-val text-amber">{{ reservasActivas() }}</div>
+        <span class="metric-sub text-amber-dim">{{ reservasActivas() }} cupos apartados</span>
+      </div>
+    </div>
+
+    <!-- Recaudación Diaria Card -->
+    <div class="revenue-card">
+      <div class="revenue-left">
+        <span class="revenue-label">Recaudación Diaria</span>
+        <div class="revenue-val">${{ recaudacionTotal() | number: '1.2-2' }}</div>
+      </div>
+      <div class="revenue-right">
+        <div class="dollar-badge">
+          <ion-icon name="cash-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Action / Alert Cards Dinámicas -->
+    <div class="alerts-grid">
+      <!-- Alertas Reales de la Base de Datos -->
+      <ng-container *ngIf="datos()?.alertas && datos()!.alertas.length > 0; else sinAlertas">
+        <div class="alert-card card-warning" *ngFor="let a of datos()!.alertas">
+          <div class="alert-icon-box icon-flame">
+            <ion-icon name="flame-outline"></ion-icon>
+          </div>
+          <div class="alert-info">
+            <h3 class="alert-title text-amber">ALERTA OPERATIVA</h3>
+            <p class="alert-text">{{ a.mensaje }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #sinAlertas>
+        <div class="alert-card card-info">
+          <div class="alert-icon-box icon-bell">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </div>
+          <div class="alert-info">
+            <h3 class="alert-title text-emerald">ESTADO GENERAL DE RED</h3>
+            <p class="alert-text">
+              Capacidad operativa disponible. Sistema de monitoreo en tiempo real activo.
+            </p>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Card 2: Restricciones Viales -->
+      <div class="alert-card card-danger">
+        <div class="alert-icon-box icon-shield">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <div class="alert-info">
+          <h3 class="alert-title text-rose">RESTRICCIONES VIALES EN AMBATO</h3>
+          <p class="alert-text">
+            Desvíos activos para conductores evitando arterias saturadas Cevallos y Bolívar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Tolerancia de Reserva -->
+      <div class="alert-card card-info">
+        <div class="alert-icon-box icon-bell">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </div>
+        <div class="alert-info">
+          <h3 class="alert-title text-indigo">CONTROL DE TOLERANCIA DE RESERVA</h3>
+          <p class="alert-text">
+            Plazas reservadas son liberadas automáticamente tras 30 min sin ingreso del conductor.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Análisis Temporal (Monitoreo Horario de Ocupación) -->
+    <div class="temporal-chart-card">
+      <div class="chart-header">
+        <div class="chart-titles">
+          <span class="chart-tag">ANÁLISIS TEMPORAL</span>
+          <h2 class="chart-title">Monitoreo Horario de Ocupación, Entradas y Salidas</h2>
+        </div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <span class="legend-bullet bullet-entrada"></span>
+            <span>Entradas</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-bullet bullet-salida"></span>
+            <span>Salidas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Bar Visualization -->
+      <div class="bars-wrapper">
+        <div class="bar-col" *ngFor="let item of horasChart" [class.col-pico]="item.pico">
+          <div class="bars-container">
+            <div
+              class="bar bar-entrada"
+              [style.height]="alturaBarra(item.entradas)"
+              [title]="'Entradas: ' + item.entradas"
+            ></div>
+            <div
+              class="bar bar-salida"
+              [style.height]="alturaBarra(item.salidas)"
+              [title]="'Salidas: ' + item.salidas"
+            ></div>
+          </div>
+          <span class="hour-label" [class.hour-pico]="item.pico">{{ item.hora }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

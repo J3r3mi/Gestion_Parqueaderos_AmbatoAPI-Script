@@ -1,0 +1,162 @@
+<app-navbar></app-navbar>
+
+<div class="executive-reservas-page">
+  <div class="page-container">
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="title-meta">
+        <span class="sub-badge">CREDENCIAL DIGITAL VEHICULAR</span>
+        <h1 class="main-title">Mis Reservas & Pase de Acceso QR</h1>
+        <p class="sub-desc">
+          Presenta tu código QR en el lector óptico de la garita de ingreso o indícalo al operador del parqueadero.
+        </p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/home" class="btn-secondary">
+          <ion-icon name="map-outline"></ion-icon>
+          <span>Ver Mapa y Rutas</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Loading State -->
+    <div *ngIf="cargando()" class="loading-state">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <span>Cargando credenciales de acceso...</span>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!cargando() && reservas().length === 0" class="empty-state-card">
+      <div class="empty-icon-box">
+        <ion-icon name="car-sport-outline"></ion-icon>
+      </div>
+      <h3 class="empty-title">No tienes reservas activas</h3>
+      <p class="empty-sub">
+        Selecciona un parqueadero disponible en el mapa de Ambato para apartar tu plaza con antelación y evitar vías saturadas.
+      </p>
+      <a routerLink="/home" class="btn-primary-reserve">
+        <ion-icon name="navigate-outline"></ion-icon>
+        <span>Explorar Parqueaderos en Ambato</span>
+      </a>
+    </div>
+
+    <!-- Main Content: Ticket Hero + Reservations List -->
+    <div *ngIf="!cargando() && reservas().length > 0" class="reservas-grid">
+      <!-- Pase Activo / Ticket Card -->
+      <section class="ticket-section" *ngIf="reservaSeleccionada() as r">
+        <div class="ticket-card" [class.ticket-confirmed]="r.estado === 'confirmada' || r.estado === 'pendiente'">
+          <!-- Ticket Header -->
+          <div class="ticket-header">
+            <div class="badge-status-row">
+              <span class="ticket-status-pill" [ngClass]="colorBadgeEstado(r.estado)">
+                <span class="pulse-dot"></span>
+                {{ r.estado | uppercase }}
+              </span>
+              <span class="ticket-type">PASE DE ACCESO GARITA</span>
+            </div>
+            <h2 class="ticket-parking-name">{{ r.parqueaderoNombre }}</h2>
+            <div class="ticket-plaza-pill">
+              <ion-icon name="car-outline"></ion-icon>
+              <span>PLAZA RESERVADA: <strong>{{ r.plazaCodigo }}</strong></span>
+            </div>
+          </div>
+
+          <!-- Ticket QR Code Display -->
+          <div class="ticket-qr-container">
+            <div class="qr-frame">
+              <div class="corner top-left"></div>
+              <div class="corner top-right"></div>
+              <div class="corner bottom-left"></div>
+              <div class="corner bottom-right"></div>
+
+              <img *ngIf="qrDataUrl()" [src]="qrDataUrl()" alt="Pase QR" class="qr-img" />
+              <div *ngIf="!qrDataUrl()" class="qr-placeholder">
+                <ion-icon name="qr-code-outline"></ion-icon>
+                <span>Sin token disponible</span>
+              </div>
+            </div>
+            <span class="qr-hint">Escanea en el sensor QR de entrada</span>
+          </div>
+
+          <!-- Ticket Telemetry & Info Grid -->
+          <div class="ticket-info-grid">
+            <div class="info-cell">
+              <span class="cell-label">Llegada Estimada</span>
+              <span class="cell-value">{{ r.horaEstimadaArribo | date: 'dd/MM/yyyy HH:mm' }}</span>
+            </div>
+            <div class="info-cell">
+              <span class="cell-label">Válido Hasta</span>
+              <span class="cell-value text-amber">{{ r.qrExpiraEn ? (r.qrExpiraEn | date: 'HH:mm') : '+30 min' }}</span>
+            </div>
+            <div class="info-cell full-width" *ngIf="r.qrToken">
+              <span class="cell-label">Token de Validación</span>
+              <div class="token-copy-row">
+                <code class="token-code">{{ r.qrToken }}</code>
+                <button class="btn-copy" (click)="copiarToken(r.qrToken)" title="Copiar Token">
+                  <ion-icon [name]="copiado() ? 'checkmark-outline' : 'copy-outline'"></ion-icon>
+                  <span>{{ copiado() ? 'Copiado' : 'Copiar' }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ticket Actions -->
+          <div class="ticket-actions">
+            <a routerLink="/home" class="btn-action-map">
+              <ion-icon name="navigate-outline"></ion-icon>
+              <span>Ver Ruta Óptima al Parqueadero</span>
+            </a>
+            <button
+              *ngIf="r.estado === 'pendiente'"
+              class="btn-action-cancel"
+              (click)="confirmarCancelacion(r)"
+            >
+              <ion-icon name="close-circle-outline"></ion-icon>
+              <span>Cancelar Esta Reserva</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- History List Column -->
+      <section class="list-section">
+        <div class="list-header-row">
+          <span class="list-section-title">HISTORIAL DE RESERVAS ({{ reservas().length }})</span>
+          <button class="btn-refresh" (click)="cargar()" title="Actualizar">
+            <ion-icon name="refresh-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="history-cards-stack">
+          <div
+            class="history-card"
+            *ngFor="let item of reservas()"
+            [class.active-item]="reservaSeleccionada()?.id === item.id"
+            (click)="seleccionarReserva(item)"
+          >
+            <div class="history-card-top">
+              <div class="card-title-group">
+                <span class="history-parking">{{ item.parqueaderoNombre }}</span>
+                <span class="history-plaza">Plaza {{ item.plazaCodigo }}</span>
+              </div>
+              <span class="status-badge" [ngClass]="colorBadgeEstado(item.estado)">
+                {{ item.estado }}
+              </span>
+            </div>
+
+            <div class="history-card-bottom">
+              <span class="history-date">
+                <ion-icon name="time-outline"></ion-icon>
+                {{ item.horaEstimadaArribo | date: 'dd/MM/yyyy HH:mm' }}
+              </span>
+              <span class="history-action-hint">
+                <span>Ver Pase QR</span>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

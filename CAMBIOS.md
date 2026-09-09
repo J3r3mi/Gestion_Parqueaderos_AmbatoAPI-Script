@@ -1,25 +1,28 @@
-# Registro de Cambios
+# CAMBIOS
 
-## CHG-01 — Documentación de endpoints de la API
+## Versión actual – Actualización final
 
-**Estado:** Implementado
+### Base de datos
 
-**Descripción:**
-Se documentaron los principales recursos disponibles en la API REST para facilitar su identificación y posterior integración con la aplicación móvil.
+* Se reemplazó la base de datos anterior por la nueva versión desarrollada en MySQL.
+* Se actualizaron las estructuras necesarias para el funcionamiento del sistema.
+* Se ajustó la configuración de conexión de la API a MySQL.
 
-**Elementos documentados:**
+### API
 
-* Usuarios
-* Parqueaderos
-* Espacios
-* Reservas
+* Se incorporó la versión actualizada de la API REST.
+* Se corrigieron errores de funcionamiento.
+* Se actualizaron los servicios necesarios para la comunicación con la aplicación móvil.
+* Se verificó la conexión entre la API y la base de datos MySQL.
 
-**Elemento de configuración afectado:**
-CI-01 — API REST y documentación técnica.
+### Aplicación móvil
 
-**Issue relacionado:** #2 — CHG-01: Mejorar documentación de endpoints de la API
+* Se incorporó la versión final y corregida de la aplicación móvil.
+* Se integró la aplicación con la API actualizada.
+* Se corrigieron errores encontrados durante las pruebas.
+* Se verificó el funcionamiento de las funcionalidades principales.
 
-**Pull Request relacionado:** #3 — CHG-01: Mejorar documentación de endpoints
+### Documentación
 
-**Observación:**
-El cambio fue registrado y gestionado mediante GitHub como parte del control de configuración del proyecto.
+* Se actualizó el README.md.
+* Se actualizó el archivo CAMBIOS con las modificaciones realizadas.

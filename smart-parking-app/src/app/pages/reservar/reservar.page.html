@@ -1,0 +1,280 @@
+<app-navbar></app-navbar>
+
+<div class="executive-reservar-page">
+  <div class="page-container">
+    <!-- Header Nav -->
+    <header class="page-header">
+      <div class="header-left">
+        <a routerLink="/home" class="btn-back">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>Volver al Mapa</span>
+        </a>
+        <div class="parking-title-group">
+          <span class="sub-badge">RESERVA DE PLAZA EN LÍNEA</span>
+          <h1 class="parking-name">{{ parqueaderoNombre() }}</h1>
+          <p class="parking-address">
+            <ion-icon name="location-outline"></ion-icon>
+            {{ parqueaderoDireccion() }}
+          </p>
+        </div>
+      </div>
+
+      <div class="header-status-badge">
+        <span class="status-indicator"></span>
+        <span>{{ plazasLibres().length }} Plazas Disponibles</span>
+      </div>
+    </header>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="cargando()" class="loading-state">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <span>Consultando disponibilidad en tiempo real...</span>
+    </div>
+
+    <!-- ESTADO CONFIRMADO: Pase de Acceso QR -->
+    <section *ngIf="!cargando() && reservaConfirmada() as r" class="success-ticket-container">
+      <div class="success-card">
+        <div class="success-header">
+          <div class="success-badge">
+            <ion-icon name="checkmark-circle"></ion-icon>
+            <span>¡RESERVA CONFIRMADA CON ÉXITO!</span>
+          </div>
+          <h2 class="success-title">{{ r.parqueaderoNombre }}</h2>
+          <div class="plaza-callout">
+            <span>PLAZA ASIGNADA</span>
+            <strong>{{ r.plazaCodigo }}</strong>
+          </div>
+        </div>
+
+        <div class="qr-presentation-box">
+          <div class="qr-border-frame">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <img *ngIf="qrDataUrl()" [src]="qrDataUrl()" alt="Código QR de Pase" class="qr-image" />
+          </div>
+          <span class="qr-instruction">Presenta este pase QR en el lector óptico de la garita de acceso</span>
+        </div>
+
+        <div class="ticket-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Llegada Estimada</span>
+            <span class="meta-val">{{ r.horaEstimadaArribo | date: 'dd/MM/yyyy HH:mm' }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Tolerancia de Garita</span>
+            <span class="meta-val text-amber">{{ r.qrExpiraEn ? (r.qrExpiraEn | date: 'HH:mm') : '+30 min' }}</span>
+          </div>
+          <div class="meta-item full-width" *ngIf="r.qrToken">
+            <span class="meta-label">Token de Validación</span>
+            <div class="token-row">
+              <code class="token-code">{{ r.qrToken }}</code>
+              <button class="btn-copy-token" (click)="copiarToken(r.qrToken)">
+                <ion-icon [name]="copiado() ? 'checkmark-outline' : 'copy-outline'"></ion-icon>
+                <span>{{ copiado() ? 'Copiado' : 'Copiar' }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <a routerLink="/mis-reservas" class="btn-primary-action">
+            <ion-icon name="qr-code-outline"></ion-icon>
+            <span>Ver en Mis Reservas / Pase QR</span>
+          </a>
+          <a routerLink="/home" class="btn-secondary-action">
+            <ion-icon name="map-outline"></ion-icon>
+            <span>Volver al Mapa y Ver Ruta</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTADO FORMULARIO DE RESERVA -->
+    <div *ngIf="!cargando() && !reservaConfirmada()" class="booking-layout">
+      <!-- Left Column: Form & Spot Selector -->
+      <div class="booking-main">
+        <!-- Error Alert -->
+        <div class="alert-error-box" *ngIf="errorMensaje()">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          <span>{{ errorMensaje() }}</span>
+        </div>
+
+        <!-- Section: Plaza Selector -->
+        <div class="booking-card">
+          <div class="card-section-title">
+            <ion-icon name="grid-outline"></ion-icon>
+            <span>1. SELECCIONA TU PLAZA DISPONIBLE</span>
+          </div>
+          <p class="section-hint">Elige la ubicación preferida dentro del parqueadero:</p>
+
+          <div class="plazas-grid">
+            <button
+              type="button"
+              class="plaza-chip-btn"
+              *ngFor="let plaza of plazasLibres()"
+              [class.plaza-selected]="form.get('plazaId')?.value === plaza.id"
+              (click)="seleccionarPlaza(plaza.id)"
+            >
+              <div class="chip-top">
+                <ion-icon [name]="plaza.tipoVehiculo === 'moto' ? 'bicycle-outline' : 'car-sport-outline'"></ion-icon>
+                <span class="plaza-code">{{ plaza.codigo }}</span>
+              </div>
+              <div class="chip-bottom">
+                <span class="plaza-type">{{ plaza.tipoVehiculo | uppercase }}</span>
+                <span class="chip-check" *ngIf="form.get('plazaId')?.value === plaza.id">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Section: Arrival Time Picker (24 Horas) -->
+        <div class="booking-card">
+          <div class="card-section-title">
+            <ion-icon name="time-outline"></ion-icon>
+            <span>2. HORA ESTIMADA DE LLEGADA (24 HORAS)</span>
+          </div>
+          <p class="section-hint">Selecciona el día y la hora exacta de tu llegada (formato 24h). Tienes 30 min de tolerancia.</p>
+
+          <!-- 1. Selector de Día -->
+          <div class="date-selector-row">
+            <span class="selector-sublabel">Día de Arribo:</span>
+            <div class="date-pills-group">
+              <button
+                type="button"
+                class="date-pill-btn"
+                [class.active]="fechaSeleccionada() === fechaHoy"
+                (click)="seleccionarFechaRapida('hoy')"
+              >
+                📅 Hoy
+              </button>
+              <button
+                type="button"
+                class="date-pill-btn"
+                [class.active]="fechaSeleccionada() === fechaManana"
+                (click)="seleccionarFechaRapida('manana')"
+              >
+                📅 Mañana
+              </button>
+              <input
+                type="date"
+                class="custom-date-native-input"
+                [value]="fechaSeleccionada()"
+                (change)="cambiarFechaManual($event)"
+              />
+            </div>
+          </div>
+
+          <!-- 2. Selector de las 24 Horas del Día (00h a 23h) -->
+          <div class="hours-24-section">
+            <div class="hours-header-row">
+              <span class="selector-sublabel">Hora (00h a 23h):</span>
+              <div class="direct-time-input-box">
+                <span>Directo:</span>
+                <input
+                  type="time"
+                  class="custom-time-input"
+                  [value]="valorInputTime24"
+                  (change)="cambiarHoraInputDirecto($event)"
+                />
+              </div>
+            </div>
+
+            <div class="hours-24-grid">
+              <button
+                type="button"
+                class="hour-chip"
+                *ngFor="let h of horas24"
+                [class.active]="horaSeleccionada() === h"
+                (click)="seleccionarHora(h)"
+              >
+                {{ h.toString().padStart(2, '0') }}h
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Selector de Minutos -->
+          <div class="minutes-section">
+            <span class="selector-sublabel">Minutos:</span>
+            <div class="minutes-pill-group">
+              <button
+                type="button"
+                class="min-pill-btn"
+                *ngFor="let m of minutosOpciones"
+                [class.active]="minutoSeleccionado() === m"
+                (click)="seleccionarMinuto(m)"
+              >
+                :{{ m.toString().padStart(2, '0') }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Resumen Destacado de Arribo -->
+          <div class="selected-time-highlight-card">
+            <ion-icon name="alarm-outline" class="alarm-icon"></ion-icon>
+            <div class="time-highlight-info">
+              <span class="time-tag">LLEGADA PROGRAMADA:</span>
+              <strong class="time-main-text">{{ horaEstimadaDisplay }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Summary & Confirmation -->
+      <aside class="booking-summary-sidebar">
+        <div class="summary-card">
+          <h3 class="summary-title">Resumen de la Reserva</h3>
+
+          <div class="summary-rows">
+            <div class="summary-row">
+              <span class="row-label">Parqueadero</span>
+              <span class="row-value">{{ parqueaderoNombre() }}</span>
+            </div>
+
+            <div class="summary-row" *ngIf="tarifaSeleccionada() as t">
+              <span class="row-label">Tarifa Vehicular</span>
+              <span class="row-value text-emerald">${{ t.valorHora | number: '1.2-2' }} / hora</span>
+            </div>
+
+            <div class="summary-row">
+              <span class="row-label">Hora Arribo</span>
+              <span class="row-value text-amber">{{ horaEstimadaDisplay }}</span>
+            </div>
+
+            <div class="summary-row">
+              <span class="row-label">Plaza Seleccionada</span>
+              <span class="row-value text-cyan">
+                {{ form.get('plazaId')?.value ? 'Plaza ID #' + form.get('plazaId')?.value : 'Ninguna elegida' }}
+              </span>
+            </div>
+
+            <div class="summary-row">
+              <span class="row-label">Tolerancia en Garita</span>
+              <span class="row-value">30 minutos gratis</span>
+            </div>
+          </div>
+
+          <div class="policy-note">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>Las reservas están protegidas por bloqueo pesimista en base de datos para garantizar tu cupo.</span>
+          </div>
+
+          <button
+            class="btn-confirm-reserve"
+            (click)="onSubmit()"
+            [disabled]="enviando() || form.invalid"
+          >
+            <ion-spinner *ngIf="enviando()" name="crescent"></ion-spinner>
+            <span *ngIf="!enviando()">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              Confirmar Reserva y Generar QR
+            </span>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,491 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0B0F19;
+}
+
+.validator-content {
+  --background: #0B0F19;
+  --color: #F8FAFC;
+}
+
+.validator-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #94A3B8;
+  margin: 0;
+}
+
+/* 2-Columns Grid */
+.validator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Scanner Card */
+.scanner-card, .telemetry-card {
+  background: #111827;
+  border: 1px solid #1E293B;
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-header-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .card-icon {
+    font-size: 20px;
+    color: #10B981;
+
+    &.text-indigo { color: #818CF8; }
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #F8FAFC;
+  }
+}
+
+/* Mode Selector */
+.mode-selector-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mode-tabs {
+  display: flex;
+  background: #0F172A;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.mode-btn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &.active {
+    background: #4F46E5;
+    color: #FFFFFF;
+  }
+}
+
+.payment-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .pay-label {
+    font-size: 11px;
+    color: #94A3B8;
+  }
+
+  .pay-select {
+    background: #0F172A;
+    color: #F8FAFC;
+    border: 1px solid #1E293B;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    outline: none;
+  }
+}
+
+/* Camera Viewport & HUD */
+.camera-viewport {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #000000;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HUD Overlay */
+.hud-overlay {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 45px;
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #10B981;
+
+  &.top-left {
+    top: 0; left: 0;
+    border-right: none; border-bottom: none;
+  }
+  &.top-right {
+    top: 0; right: 0;
+    border-left: none; border-bottom: none;
+  }
+  &.bottom-left {
+    bottom: 0; left: 0;
+    border-right: none; border-top: none;
+  }
+  &.bottom-right {
+    bottom: 0; right: 0;
+    border-left: none; border-top: none;
+  }
+}
+
+.scan-laser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10B981, transparent);
+  box-shadow: 0 0 10px #10B981;
+  animation: scanning 2.2s infinite ease-in-out;
+}
+
+.hud-footer {
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hud-status {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+/* Manual Input Section */
+.manual-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.input-action-row {
+  display: flex;
+  gap: 8px;
+}
+
+.cyber-input {
+  flex: 1;
+  background: #0B0F19;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #F8FAFC;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: #4F46E5;
+  }
+
+  &::placeholder {
+    color: #475569;
+  }
+}
+
+.btn-validate {
+  background: #4F46E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #4338CA;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Simulated Reservations */
+.simulated-reservations-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sim-title {
+  font-size: 10px;
+  font-weight: 800;
+  color: #64748B;
+  letter-spacing: 0.5px;
+}
+
+.sim-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sim-chip {
+  background: #0B0F19;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #10B981;
+    background: rgba(16, 185, 129, 0.05);
+  }
+}
+
+.chip-token {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: #10B981;
+  font-weight: 700;
+}
+
+.chip-info {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+/* Telemetry Body */
+.telemetry-body {
+  flex: 1;
+  background: #0B0F19;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.telemetry-idle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 320px;
+}
+
+.radar-pulse {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818CF8;
+  font-size: 28px;
+  animation: pulse 2.5s infinite;
+}
+
+.idle-text {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Telemetry Result States */
+.telemetry-result {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  text-align: center;
+}
+
+.result-badge {
+  font-size: 14px;
+  font-weight: 900;
+  padding: 8px 18px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+
+  &.badge-success {
+    background: rgba(16, 185, 129, 0.18);
+    color: #10B981;
+    border: 1px solid #10B981;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+  }
+
+  &.badge-danger {
+    background: rgba(239, 68, 68, 0.18);
+    color: #EF4444;
+    border: 1px solid #EF4444;
+  }
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  background: #111827;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #1E293B;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.data-label {
+  font-size: 10px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.data-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #F8FAFC;
+
+  &.text-emerald { color: #10B981; }
+}
+
+.result-msg {
+  font-size: 13px;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.btn-reset {
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #334155;
+  }
+}
+
+/* Telemetry Footer */
+.telemetry-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.protocol-text {
+  font-size: 11px;
+  color: #64748B;
+}
+
+.live-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #10B981;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+@keyframes scanning {
+  0% { top: 0; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (max-width: 950px) {
+  .validator-grid {
+    grid-template-columns: 1fr;
+  }
+}

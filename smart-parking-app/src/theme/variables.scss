@@ -1,0 +1,48 @@
+:root {
+  /* Paleta Dark Executive (Google AI Studio Prototype) */
+  --bg-dark-main: #0B0F19;
+  --bg-dark-surface: #111827;
+  --bg-dark-card: #131D31;
+  --bg-dark-card-hover: #1E293B;
+  --border-dark: #1E293B;
+  --border-glow: rgba(99, 102, 241, 0.2);
+
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  --accent-emerald: #10B981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-blue: #3B82F6;
+  --accent-indigo: #6366F1;
+  --accent-amber: #F59E0B;
+  --accent-rose: #F43F5E;
+  --accent-cyan: #06B6D4;
+
+  /* Ionic Core Dark Mode Override */
+  --ion-background-color: #0B0F19;
+  --ion-background-color-rgb: 11, 15, 25;
+  --ion-text-color: #F8FAFC;
+  --ion-text-color-rgb: 248, 250, 252;
+
+  --ion-card-background: #111827;
+  --ion-toolbar-background: #0B0F19;
+  --ion-toolbar-color: #F8FAFC;
+  --ion-toolbar-border-color: #1E293B;
+
+  --ion-item-background: #111827;
+  --ion-item-color: #F8FAFC;
+
+  --ion-color-primary: #6366F1;
+  --ion-color-primary-rgb: 99, 102, 241;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #4f46e5;
+  --ion-color-primary-tint: #818cf8;
+
+  --ion-color-success: #10B981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-warning: #F59E0B;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-danger: #EF4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+}

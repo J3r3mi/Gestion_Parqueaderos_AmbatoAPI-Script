@@ -1,0 +1,51 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="registro-container">
+
+    <!-- ---------- ÉXITO ---------- -->
+    <div *ngIf="registroExitoso()" class="centrado">
+      <ion-icon name="checkmark-circle" color="success" class="icono-exito"></ion-icon>
+      <h2>¡Cuenta creada!</h2>
+      <p>Ya puedes iniciar sesión con tu correo y contraseña.</p>
+      <ion-button expand="block" (click)="irALogin()">Ir a iniciar sesión</ion-button>
+    </div>
+
+    <!-- ---------- FORMULARIO ---------- -->
+    <ng-container *ngIf="!registroExitoso()">
+      <div class="registro-header">
+        <h1>Crear cuenta de conductor</h1>
+        <p>Regístrate para reservar parqueaderos en Ambato</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">Nombre completo</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Cédula</ion-label>
+          <ion-input formControlName="cedula"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input formControlName="correo" type="email" autocomplete="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password" autocomplete="new-password"></ion-input>
+        </ion-item>
+
+        <ion-text color="danger" *ngIf="errorMensaje()">
+          <p class="error-text">{{ errorMensaje() }}</p>
+        </ion-text>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="enviando()">
+          <ion-spinner *ngIf="enviando()" name="crescent"></ion-spinner>
+          <span *ngIf="!enviando()">Registrarme</span>
+        </ion-button>
+
+        <ion-button expand="block" fill="clear" routerLink="/login">Ya tengo cuenta</ion-button>
+      </form>
+    </ng-container>
+
+  </div>
+</ion-content>

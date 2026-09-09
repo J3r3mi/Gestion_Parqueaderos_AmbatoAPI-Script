@@ -1,6 +1,0 @@
-@GestionParqueaderosAmbato.API_HostAddress = http://localhost:5084
-
-GET {{GestionParqueaderosAmbato.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
